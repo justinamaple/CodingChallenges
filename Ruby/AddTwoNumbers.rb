@@ -3,14 +3,15 @@
 #    http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/
 # Solution:
 #   Since both numbers are given to us in little endian, our job is a bit
-#   easier we can just add the digits directly and return a pointer to the
+#   easier, we can just add the digits directly and return a pointer to the
 #   head. The complications come with the overflow or carry, if the sum is
 #   greater then 10, we need to return the lowest digit and carry the 1.
 #   The safe navigation operator is used in conjunction with breaking apart
 #   the sum to avoid null pointers. By running up both lists simultaneously,
-#   we avoid the pitfall of accessing .val on a nil object. The last clever
-#   bit involves making the head pointer at first, then passing the head.next
-#   at the end to avoid the dangling reference.
+#   ensure we are adding the same digit on top of avoiding the pitfall of
+#   accessing .val on a nil object. The last clever bit involves making the
+#   head pointer at first, then passing the head.next at the end to avoid the
+#   dangling reference.
 # Time Complexity:
 #   O(n) = O(n + m), where n and m are the length of l1 and l2 respectively.
 # Space Complexity:
