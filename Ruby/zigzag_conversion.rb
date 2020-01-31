@@ -20,14 +20,9 @@
 def convert(str, num_rows)
   return str if str.length < 2 || num_rows < 2
 
-  zig_zag_words = create_zig_zag_words(str, num_rows)
-  zig_zag_words.join('')
-end
-
-def create_zig_zag_words(str, num_rows)
+  words = Array.new(num_rows, '')
   down = true
   row = 0
-  words = create_empty_words(num_rows)
 
   str.each_char do |ch|
     words[row] += ch
@@ -36,17 +31,7 @@ def create_zig_zag_words(str, num_rows)
     row = down ? row - 1 : row + 1
   end
 
-  words
-end
-
-def create_empty_words(num_rows)
-  empty_words = []
-
-  num_rows.times do |i|
-    empty_words[i] = ''
-  end
-
-  empty_words
+  words.join
 end
 
 # Alternate solutions using zip and cycle
