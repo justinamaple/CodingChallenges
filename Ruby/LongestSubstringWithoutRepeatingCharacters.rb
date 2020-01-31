@@ -1,4 +1,5 @@
-# Source: https://leetcode.com/problems/longest-substring-without-repeating-characters/
+# Source:
+#   https://leetcode.com/problems/longest-substring-without-repeating-characters/
 # Solution:
 #   In order to traverse the string once, we will have to take advantage of
 #   hashes. Using the given char as the key, we will store the last known index

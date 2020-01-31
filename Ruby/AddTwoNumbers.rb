@@ -1,6 +1,7 @@
-# Source: https://leetcode.com/problems/add-two-numbers/
+# Source:
+#   https://leetcode.com/problems/add-two-numbers/
 # Info: SafeNavigation Operator
-#    http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/
+#   http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/
 # Solution:
 #   Since both numbers are given to us in little endian, our job is a bit
 #   easier, we can just add the digits directly and return a pointer to the

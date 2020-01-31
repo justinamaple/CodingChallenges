@@ -1,4 +1,4 @@
-# Source: 
+# Source:
 #   https://leetcode.com/problems/longest-palindromic-substring/
 # Solution:
 #   Recognize that there are two types of palindromes, even and
@@ -18,16 +18,17 @@
 #   value by 1.
 #
 # Time Complexity:
-#   O(n^2), the array will only need to be traversed once, but the even and odd expansion
-#   will take n/2, since they grow outward, resulting in n * (2 * (n/2))
+#   O(n^2), the array will only need to be traversed once, but the even and
+#   odd expansion will take n/2, since they grow outward, resulting in
+#   n * (2 * (n/2))
 # Space Complexity:
 #   O(1), only indexes are tracked.
 
 # @param {String} str
 # @return {String}
-def longest_palindrome(str)  
+def longest_palindrome(str)
   return str if str.length < 2
-  
+
   start_index = 0
   end_index = 0
 
@@ -35,13 +36,13 @@ def longest_palindrome(str)
     odd_length = expand_palindrome(str, i, i)
     even_length = expand_palindrome(str, i, i + 1)
     greater_length = [odd_length, even_length].max
-    
+
     if greater_length > end_index - start_index
       start_index = i - (greater_length - 1) / 2
       end_index = i + greater_length / 2
     end
   end
-  
+
   str[start_index..end_index]
 end
 

@@ -1,12 +1,15 @@
-# Source: https://leetcode.com/problems/median-of-two-sorted-arrays/
+# Source:
+#   https://leetcode.com/problems/median-of-two-sorted-arrays/
 # Solution:
 #   This problem is split into two helper functions, the first is to combine
 #   the two sorted arrays into one. This can be done in one loop with 3 indices
 #   so that they can all be traversed one time. After zipping the arrays
 #   together, the median can then be found.
-# Time Complexity: O(n) = O(n + m), where n and m are the length of array1 and
+# Time Complexity:
+#   O(n) = O(n + m), where n and m are the length of array1 and
 #   array 2 respectively.
-# Space Complexity: O(n), one extra array will be generated of length n + m.
+# Space Complexity:
+#   O(n), one extra array will be generated of length n + m.
 def find_median_sorted_arrays(array1, array2)
   merged_array = merge_sorted_arrays(array1, array2)
   median(merged_array)
