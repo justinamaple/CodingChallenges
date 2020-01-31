@@ -1,5 +1,5 @@
 # Source:
-#   https://leetcode.com/problems/two-sum/submissions/
+#   https://leetcode.com/problems/two-sum/
 # Solution:
 #   Use a hash to store the index of the current number at complement value,
 #   which is found by subtracting the current num from the target. If the
