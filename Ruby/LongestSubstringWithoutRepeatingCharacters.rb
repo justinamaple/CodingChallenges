@@ -15,7 +15,7 @@
 # @param {String} str
 # @return {Integer}
 def length_of_longest_substring(str)
-  # Stores the farthest index of char
+  # Stores the furthest index of char
   char_map = {}
   longest = 0
   sub_index = 0
