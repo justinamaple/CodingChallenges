@@ -10,11 +10,11 @@ def three_sum(nums)
   nums.sort!
 
   (0..nums.length - 2).each do |i|
-    # Since nums is sorted solution 
+    # Since nums is sorted solution
     # cannot be made of 3 positive vals
     break if nums[i].positive?
     # Zip past duplicate start vals
-    next if i > 0 && nums[i] == nums[i - 1]
+    next if i.positive? && nums[i] == nums[i - 1]
 
     left = i + 1
     right = nums.length - 1
