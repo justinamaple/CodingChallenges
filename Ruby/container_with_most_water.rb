@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/container-with-most-water/
+
 # @param {Integer[]} height
 # @return {Integer}
 def max_area(height)
