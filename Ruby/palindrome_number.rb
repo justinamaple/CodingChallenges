@@ -1,5 +1,6 @@
 # Source:
 #   https://leetcode.com/problems/palindrome-number/
+<<<<<<< HEAD
 # Solution:
 #   Start with the edge cases, if the number is negative return
 #   false. Several solutions are given, the first was the most
@@ -35,6 +36,25 @@ end
 
 def is_palindrome2(x)
   return false if (x.negative? || (x != 0 && (x % 10).zero?))
+=======
+
+# @param {Integer} x
+# @return {Boolean}
+def is_palindrome_str(x)
+  return false if x.negative?
+
+  digits = x.digits
+
+  (digits.length / 2).times do |i|
+    return false if digits[i] != digits[-i - 1]
+  end
+
+  true
+end
+
+def is_palindrome_int(x)
+  return false if x.negative? || (x != 0 && (x % 10).zero?)
+>>>>>>> HomePC
 
   reverse = 0
   # This only requires us to go half way, avoiding
@@ -44,6 +64,9 @@ def is_palindrome2(x)
     x /= 10
   end
 
+<<<<<<< HEAD
   # Even and Odd Cases
+=======
+>>>>>>> HomePC
   x == reverse || x == reverse / 10
 end
