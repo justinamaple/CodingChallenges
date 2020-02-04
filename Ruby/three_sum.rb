@@ -41,3 +41,47 @@ def three_sum(nums)
 
   solutions
 end
+
+# This solution uses a frequency hash to speed things up
+# however I think this would be much harder to come up with
+# on the spot due to the complex edge cases and logic.
+
+# @param {Integer[]} nums
+# @return {Integer[][]}
+def three_sum_freq(nums)
+  freq_hash = Hash.new(0)
+  nums.each { |num| freq_hash[num] += 1 }
+
+  solutions = []
+
+  # Guarantee uniqueness and increasing order
+  keys = freq_hash.keys.sort
+  (0...keys.length).each do |i|
+    # 3 positive values can't work
+    break if keys[i] > 0
+
+    # If the given value appears multiple times
+    # we need to check if a == b || b == c || a == c
+    start = freq_hash[keys[i]] > 1 ? i : i + 1
+    (start...keys.length).each do |j|
+      # a + b + c = 0 == c = -1 (a + b)
+      # && a <= b <= c since i < j
+      a = keys[i]
+      b = keys[j]
+      c = -1 * (a + b)
+      break if c < b # since a can only increase b
+      next unless freq_hash.key?(c) # must have occured
+
+      freq = 1 # since c exists
+      freq += 1 if c == b
+      freq += 1 if c == a
+      # if a, b, or c is equal, that value needs
+      # to have appeared atleast that many times
+      next unless freq_hash[c] >= freq
+
+      solutions << [a, b, c].sort
+    end
+  end
+
+  solutions
+end
