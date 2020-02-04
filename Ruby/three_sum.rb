@@ -79,7 +79,7 @@ def three_sum_freq(nums)
       # to have appeared atleast that many times
       next unless freq_hash[c] >= freq
 
-      solutions << [a, b, c].sort
+      solutions << [a, b, c]
     end
   end
 
