@@ -48,26 +48,26 @@ end
 
 # @param {Integer[]} nums
 # @return {Integer[][]}
-def three_sum_freq(nums)
+def three_sum(unsorted_nums)
   freq_hash = Hash.new(0)
-  nums.each { |num| freq_hash[num] += 1 }
+  unsorted_nums.each { |num| freq_hash[num] += 1 }
 
   solutions = []
 
   # Guarantee uniqueness and increasing order
-  keys = freq_hash.keys.sort
-  (0...keys.length).each do |i|
+  nums = freq_hash.keys.sort
+  (0...nums.length).each do |i|
     # 3 positive values can't work
-    break if keys[i] > 0
+    break if nums[i] > 0
 
     # If the given value appears multiple times
     # we need to check if a == b || b == c || a == c
-    start = freq_hash[keys[i]] > 1 ? i : i + 1
-    (start...keys.length).each do |j|
+    start = freq_hash[nums[i]] > 1 ? i : i + 1
+    (start...nums.length).each do |j|
       # a + b + c = 0 == c = -1 (a + b)
       # && a <= b <= c since i < j
-      a = keys[i]
-      b = keys[j]
+      a = nums[i]
+      b = nums[j]
       c = -1 * (a + b)
       break if c < b # since a can only increase b
       next unless freq_hash.key?(c) # must have occured
