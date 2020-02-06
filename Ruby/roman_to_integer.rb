@@ -1,9 +1,24 @@
 # Source:
 #   https://leetcode.com/problems/roman-to-integer/
+# Solution:
+#   Guard clause is not present, but if the input containe invalid
+#   chars or was empty there should be potential, however the question
+#   posits that the input will be valid.
+#
+#   First create a map converting the roman character to its integer val.
+#   Iterate over the input string, getting each value and its subsequent
+#   value. If the end of the array is reached, use 0 for the next value.
+#   If num is less then the next num, subtract from the sum, otherwise add.
+#   Return the sum.
+# Time Complexity:
+#   O(n), the string, essentially an array of chars, will only need to be
+#   traversed once.
+# Space Complexity:
+#   O(1)
 
-# @param {String} s
+# @param {String} str
 # @return {Integer}
-def roman_to_int(s)
+def roman_to_int(str)
   r_to_i = {
     'I' => 1,
     'V' => 5,
@@ -15,9 +30,9 @@ def roman_to_int(s)
   }
   sum = 0
 
-  s.length.times do |i|
-    num = r_to_i[s[i]]
-    next_num = r_to_i[s[i + 1]] || 0
+  str.length.times do |i|
+    num = r_to_i[str[i]]
+    next_num = r_to_i[str[i + 1]] || 0
 
     if num < next_num
       sum -= num
@@ -57,7 +72,7 @@ end
 # Goes in reverse, traversing only once, and
 # does less hash look ups and conditionals.
 # However this code is not very appealing since
-# each switche case is written out by hand.
+# each switch case must be written out by hand.
 def roman_to_int_fastest(s)
   sum = 0
 
