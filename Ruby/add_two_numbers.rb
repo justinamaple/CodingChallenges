@@ -7,6 +7,7 @@
 #   easier, we can just add the digits directly and return a pointer to the
 #   head. The complications come with the overflow or carry, if the sum is
 #   greater then 10, we need to return the lowest digit and carry the 1.
+#
 #   The safe navigation operator is used in conjunction with breaking apart
 #   the sum to avoid null pointers. By running up both lists simultaneously,
 #   ensure we are adding the same digit on top of avoiding the pitfall of
