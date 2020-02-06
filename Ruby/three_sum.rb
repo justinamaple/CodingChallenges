@@ -1,5 +1,25 @@
 # Source:
 #   https://leetcode.com/problems/3sum/
+# Solution:
+#   Begin with a guard clause, if there are less then three values
+#   then it is not possible to have a 3sum, return false. In order
+#   to accurately use the array, it must be sorted. Iterate over the
+#   array - 2 (since the index of left < i < right). If the value for a is
+#   positive, break (it's impossible for a + b + c = 0 if all 3 are 
+#   positive)
+#
+#   Next check for duplicated a values, and zip past them by increasing
+#   the index where they are equal. Now that we have a unique value,
+#   set b to the left most, and c to the right most possible value.
+#   While left < right, check the value of the sum. If it's equal add it to
+#   the solution set, and zip over any duplicate values for left and
+#   right. If the sum is too small, move left up, if too big, move right
+#   down. Finally return the solution set.
+# Time Complexity:
+#   O(n^2), For each value in the array, every other value will be checked
+#   using the left and right pointers, one at a time.
+# Space Complexity:
+#   O(n), potentially the solutions array could be the size of the input.
 
 # @param {Integer[]} nums
 # @return {Integer[][]}
@@ -58,7 +78,7 @@ def three_sum(unsorted_nums)
   nums = freq_hash.keys.sort
   (0...nums.length).each do |i|
     # 3 positive values can't work
-    break if nums[i] > 0
+    break if nums[i].positive?
 
     # If the given value appears multiple times
     # we need to check if a == b || b == c || a == c
