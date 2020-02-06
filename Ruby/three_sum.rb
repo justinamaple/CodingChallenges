@@ -5,7 +5,7 @@
 #   then it is not possible to have a 3sum, return false. In order
 #   to accurately use the array, it must be sorted. Iterate over the
 #   array - 2 (since the index of left < i < right). If the value for a is
-#   positive, break (it's impossible for a + b + c = 0 if all 3 are 
+#   positive, break (it's impossible for a + b + c = 0 if all 3 are
 #   positive)
 #
 #   Next check for duplicated a values, and zip past them by increasing
@@ -68,7 +68,7 @@ end
 
 # @param {Integer[]} nums
 # @return {Integer[][]}
-def three_sum(unsorted_nums)
+def three_sum_freq_hash(unsorted_nums)
   freq_hash = Hash.new(0)
   unsorted_nums.each { |num| freq_hash[num] += 1 }
 
@@ -92,7 +92,7 @@ def three_sum(unsorted_nums)
       break if c < b # since a can only increase b
       next unless freq_hash.key?(c) # must have occured
 
-      freq = 1 # since c exists
+      freq = 1
       freq += 1 if c == b
       freq += 1 if c == a
       # if a, b, or c is equal, that value needs
