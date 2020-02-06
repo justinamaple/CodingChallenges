@@ -1,25 +1,22 @@
 # Source:
 #   https://leetcode.com/problems/integer-to-roman/
 # Solution:
-#   Edge cases are all basically covered. First things first,
-#   figure out how to calculate the area. Take the min of the
-#   two heights, then multiply it by the distance betweebn the
-#   two indexes. If this area is greater then the old max,
-#   updated it. Since we know the area has to be between two
-#   points, and the distance should be maximized, we only want
-#   to move in one side towards the middle at a time, until
-#   the left and right meet. Move the side in with the currently
-#   shorter height. This ensure that we maximize both height and
-#   distance as we move towards the center.
+#   No guard clause needed since input is guaranteed to be valid,
+#   however should check to see its an int, and within a range.
+#
+#   Iterate over the hash, in decreasing order. Use greedy, taking
+#   as many of the largest quantity out, then going to the next.
+#   Add values in for the non-whole values, like 'CM'. When num
+#   is equal to zero return the string.
 # Time Complexity:
-#   O(n), the array will only need to be traversed once.
+#   O(1)
 # Space Complexity:
 #   O(1)
 
 # @param {Integer} num
 # @return {String}
 def int_to_roman(num)
-  map = {
+  i_to_r = {
       1000 => 'M',
       900 => 'CM',
       500 => 'D',
@@ -35,13 +32,17 @@ def int_to_roman(num)
       1 => 'I'
   }
 
+  # StringIO is faster then appending characters to a string
+  # Since in Ruby a new array must be allocated and everything
+  # copied over with each append. This way the buffer is simply
+  # increased, and the string is created once at the end.
   s = StringIO.new
 
-  map.each do |int, roman|
-      break if num.zero?
+  i_to_r.each do |int, roman|
+    break if num.zero?
 
-      s << roman * (num / int) if (num / int) > 0
-      num %= int
+    s << roman * (num / int) if (num / int).positive?
+    num %= int
   end
 
   s.string
