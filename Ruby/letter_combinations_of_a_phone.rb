@@ -1,3 +1,16 @@
+# Source:
+#   https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+# Solution:
+#   Guard clause, return an empty array if the input is empty. This allows
+#   us to use a empty string to generate the first set of combos. For each
+#   of the digits in the phone number, add all of the possibile cominbinations.
+#   To do this, simply add the 3 possible letters, to each of the existing combos.
+#   Finally return the completed combo list.
+# Time Complexity:
+#   O(3^n * 4^m), each of the digits will be gone through, then all of its permutations,
+#   where n is the 3 letter digits, and m is the 4 letter.
+# Space Complexity:
+#   O(3^n * 4^m)
 # @param {String} digits
 # @return {String[]}
 def letter_combinations(digits)
