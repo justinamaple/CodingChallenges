@@ -5,13 +5,13 @@
 # @param {Integer} target
 # @return {Integer[][]}
 def four_sum(nums, target)
+  solutions = []
   freq_hash = Hash.new(0)
   nums.each { |num| freq_hash[num] += 1 }
 
-  solutions = []
-
   keys = freq_hash.keys.sort
   (0...keys.length).each do |i|
+    break if target >= 0 && keys[i] > target
 
     j_start = freq_hash[keys[i]] > 1 ? i : i + 1
     (j_start...keys.length).each do |j|
