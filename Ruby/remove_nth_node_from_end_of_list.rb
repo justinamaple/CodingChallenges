@@ -1,3 +1,17 @@
+# Source:
+#   https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+# Solution:
+#   First off create an array, index counter, and a current pointer.
+#   Iterate over the entire list, adding each node to the array at the
+#   proper index. After, subtract n from the index, giving you the value
+#   before the one to be skipped. If that value is negative, skip over the
+#   0th element in the array. Otherwise set the next pointer of that node
+#   to i - n + 2. Return the head.
+# Time Complexity:
+#   O(n), where n is the number of nodes in the linked list.
+# Space Complexity:
+#   O(n), where n is an array of equal size to the linkest list.
+
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
