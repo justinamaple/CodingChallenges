@@ -1,3 +1,16 @@
+# Source:
+#   https://leetcode.com/problems/implement-strstr/
+# Solution:
+#   Kind of a simple brute force that just checks to see if the
+#   first string contains the second. This uses breaks to check each
+#   char for the needle, then moves to the next. If it reaches the end
+#   simply return -1.
+# Time Complexity:
+#   O(n^2), the supposed worst case if m and n were equal, however in
+#   reality it will be much faster than this.
+# Space Complexity:
+#   O(1)
+
 # @param {String} haystack
 # @param {String} needle
 # @return {Integer}
