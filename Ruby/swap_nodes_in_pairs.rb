@@ -1,3 +1,20 @@
+# Source:
+#   https://leetcode.com/problems/swap-nodes-in-pairs/
+# Solution:
+#   Create a current pointer equal to the head, a last, and a last_last(two_ago).
+#   Set i = 1 to 1 and keep track of even values, since then a swap needs to occur.
+#   To swap use a temp, with the usual 3 way switch. After check if i < 3, if so
+#   handle the head pointer. Otherwise update two_ago to point to the current.
+#   Set current equal to last.next, which is either the current or the updated after
+#   a switch. Return the head pointer.
+#
+#   The array solution is clearer and probably easier to come up with during an interview.
+#   However it is less space efficient, but I don't think thats too big of an issue.
+# Time Complexity:
+#   O(n), the linked list will only need to be traversed once.
+# Space Complexity:
+#   O(1), only a few extra variables needed.
+
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
