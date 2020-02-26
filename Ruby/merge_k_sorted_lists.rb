@@ -1,3 +1,16 @@
+# Source:
+#   https://leetcode.com/problems/merge-k-sorted-lists/
+# Solution:
+#   Use a hash to create a frequency histogram of how many times
+#   each value occurs, iterating over each node in each list. After,
+#   iterate over the sorted keys to the histogram, inflating each node
+#   in order and linking them up. Return the head.
+# Time Complexity:
+#   O(n), all of the linked lists will be traversed once, then a subset
+#   will need to be traversed for the keys when creating the list.
+# Space Complexity:
+#   O(n), the hash used will not exceed the size of all nodes.
+
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
