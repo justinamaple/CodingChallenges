@@ -11,8 +11,10 @@
 #  is '.', which stands for an empty square.
 # Time Complexity:
 #   O(1), technically no more then 81 squares will need to be checked.
+#   Could also be O(n) where n < 81.
 # Space Complexity:
-#   O(1), the space used is also constant.
+#   O(1), the space used is also constant, max set size would be 81.
+#   Ccould also be O(n) where n < 81.
 
 # @param {Character[][]} board
 # @return {Boolean}
