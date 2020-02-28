@@ -3,7 +3,9 @@
 # Solution:
 #   Checks from top left to bottom right each piece of the board.
 #   Creates a set which uses a string as the key, which is the
-#   location written out in plain english.
+#   location written out in plain english. When adding to the set,
+#   if it already exists, add? returns nil, so the whole function
+#   returns false.
 #
 #  Slight speed optimization by not calling the check if the num
 #  is '.', which stands for an empty square.
