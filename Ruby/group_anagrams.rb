@@ -1,3 +1,15 @@
+# Source:
+#   https://leetcode.com/problems/group-anagrams/
+# Solution:
+#   Create a hash filled with empty arrays first. Then go through
+#   each of the strings and sort them alphabetically. Use this sorted
+#   string as the key to insert into a hash. Return the values of the hash
+# Time Complexity:
+#   O(n^2), each item n within strs, with a str length of m will need to be
+#   therefore it would take n * m log m.
+# Space Complexity:
+#   O(n), the hash used will not exceed the size of strs, or n.
+
 # @param {String[]} strs
 # @return {String[][]}
 def group_anagrams(strs)
