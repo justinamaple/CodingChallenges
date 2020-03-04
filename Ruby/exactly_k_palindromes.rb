@@ -1,4 +1,4 @@
-# Given a str, can you make exactly k palindromes out
+# Given a str, can you make exactly n palindromes out
 # of it using all of the given letters
 
 # Time Complexity:
@@ -6,9 +6,14 @@
 #   keys of the freq hash, a subset of n, will be traversed as well.
 # Space Complexity:
 #   O(n), the hash used will not exceed the size of the string.
-def exactly_k_palindromes(str, k)
+
+# @param {String} str
+# @param {Integer} n
+# @return {Boolean}
+def exactly_n_palindromes(str, n)
   even = 0
   odd = 0
+
   freq = Hash.new(0)
   str.each_char { |char| freq[char] += 1 }
 
@@ -17,7 +22,7 @@ def exactly_k_palindromes(str, k)
     even += times / 2
   end
 
-  odd > k || even + odd < k ? false : true
+  odd > n || even + odd < n ? false : true
 end
 
 exactly_k_palindromes('abracadabra', 8)
