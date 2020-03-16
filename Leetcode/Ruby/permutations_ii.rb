@@ -14,9 +14,9 @@ def backtrack(list, arr, used, nums)
       next if used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]
       used[i] = true
       arr << nums[i]
-      
+
       backtrack(list, arr, used, nums)
-      
+
       used[i] = false
       arr.pop
     end
