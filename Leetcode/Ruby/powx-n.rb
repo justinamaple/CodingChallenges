@@ -15,5 +15,5 @@ end
 def pow(x, n)
   return 1 if n.zero?
 
-  (n % 2).zero? ? pow(x * x, n / 2) : x * pow(x * x, n / 2)
+  n.even? ? pow(x * x, n / 2) : x * pow(x * x, n / 2)
 end
