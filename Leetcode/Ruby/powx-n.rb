@@ -2,8 +2,6 @@
 # @param {Integer} n
 # @return {Float}
 def my_pow(x, n)
-  return 1 if n.zero?
-
   if n.negative?
     n = -n
     x = 1 / x
