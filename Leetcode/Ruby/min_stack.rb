@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/min-stack
+
 class MinStack
   def initialize()
     @arr = []
