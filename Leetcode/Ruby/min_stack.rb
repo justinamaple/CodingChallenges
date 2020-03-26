@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 # Source:
 #   https://leetcode.com/problems/min-stack
 
 class MinStack
-  def initialize()
+  def initialize
     @arr = []
     @index = 0
     @min = nil
   end
 
-  def push(x)
-    @arr[@index] = x
+  def push(num)
+    @arr[@index] = num
     @index += 1
 
-    if @min
-      @min = [x, @min].min
-    else
-      @min = x
-    end
+    @min = if @min
+             [num, @min].min
+           else
+             num
+           end
   end
 
-  def pop()
+  def pop
     @index -= 1
     popped = @arr[@index]
     @arr.delete_at(-1)
@@ -29,15 +31,15 @@ class MinStack
     popped
   end
 
-  def top()
+  def top
     @arr[@index - 1]
   end
 
-  def get_min()
+  def get_min
     @min
   end
 
-  def update_min()
+  def update_min
     @min = @arr.min
   end
 end
