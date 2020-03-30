@@ -1,5 +1,5 @@
 # Leetcode
-Solutions to the Leetcode problems
+Solutions to the Leetcode problems.
 
 # HackerRank
-Solutions to the HackerRank problems
+Solutions to the HackerRank problems.
