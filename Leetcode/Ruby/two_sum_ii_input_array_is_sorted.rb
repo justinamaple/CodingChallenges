@@ -42,7 +42,7 @@ def two_sum(nums, target)
   seen = {}
 
   (0...nums.length).each do |i|
-    unless seen[nums[i]]
+    next if seen[nums[i]]
       seen[nums[i]] = true
 
       search_result = b_search(nums, target, i)
@@ -55,17 +55,16 @@ end
 
 def b_search(nums, target, i)
   lo = i + 1
-  hi =  nums.length - 1
+  hi = nums.length - 1
   diff = target - nums[i]
 
   while lo <= hi
     mid = lo + (hi - lo) / 2
+    return [i + 1, mid + 1] if nums[mid] == diff
 
-    if nums[mid] == diff
-      return [i + 1, mid + 1]
-    elsif nums[mid] < diff
+    if nums[mid] < diff
       lo = mid + 1
-    else
+    else # nums[mid] > diff
       hi = mid - 1
     end
   end
