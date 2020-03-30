@@ -15,3 +15,60 @@ def two_sum(numbers, target)
 
   nil
 end
+
+# Added a pointer solution, this is essentially a zipper function.
+# Due to the if statements this actually takes longer then then hash'
+# solution.
+def two_sum(nums, target)
+  lo = 0
+  hi = nums.length - 1
+
+  while lo < hi
+    if nums[lo] + nums[hi] == target
+      return [lo + 1, hi + 1]
+    elsif nums[lo] + nums[hi] > target
+      hi -= 1
+    else # lo + hi < target
+      lo += 1
+    end
+  end
+
+  nil
+end
+
+# Bsearch solution for two sum that takes advantage of a seen hash.
+# This would be the hardest one to come up with during an interview.
+def two_sum(nums, target)
+  seen = {}
+  
+  (0...nums.length).each do |i|
+    unless seen[nums[i]]
+      seen[nums[i]] = true
+      
+      search_result = b_search(nums, target, i)
+      return search_result if search_result
+    end
+  end
+
+  nil
+end
+
+def b_search(nums, target, i)
+  lo = i + 1
+  hi =  nums.length - 1
+  diff = target - nums[i]
+
+  while lo <= hi
+    mid = lo + (hi - lo) / 2
+
+    if nums[mid] == diff
+      return [i + 1, mid + 1]
+    elsif nums[mid] < diff
+      lo = mid + 1
+    else
+      hi = mid - 1
+    end
+  end
+  
+  nil
+end
