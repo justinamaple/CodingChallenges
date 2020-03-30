@@ -40,11 +40,11 @@ end
 # This would be the hardest one to come up with during an interview.
 def two_sum(nums, target)
   seen = {}
-  
+
   (0...nums.length).each do |i|
     unless seen[nums[i]]
       seen[nums[i]] = true
-      
+
       search_result = b_search(nums, target, i)
       return search_result if search_result
     end
@@ -69,6 +69,6 @@ def b_search(nums, target, i)
       hi = mid - 1
     end
   end
-  
+
   nil
 end
