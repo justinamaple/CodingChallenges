@@ -31,3 +31,21 @@ def getIntersectionNode(headA, headB)
 
   nil
 end
+
+# Baller solution:
+# This takes advantage of the fact the the length of a + b
+# is always the same, by looping a through b after if there
+# is no intersection then they eventually meet up at nil on
+# the second loop.
+def getIntersectionNode(headA, headB)
+  a = headA
+  b = headB
+
+  until a == b
+    a = a.nil? ? headB : a.next
+    b = b.nil? ? headA : b.next
+  end
+
+  a
+end
+
