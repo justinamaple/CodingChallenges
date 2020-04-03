@@ -19,7 +19,7 @@ def majority_element(nums)
   nums.each { |num| freq[num] += 1 }
 
   half_len =  nums.length / 2
-  max = freq.select { |key, val| val > half_len }
+  max = freq.select { |_, val| val > half_len }
 
   max.keys.first
 end
