@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/majority-element
+
 # @param {Integer[]} nums
 # @return {Integer}
 def majority_element(nums)
