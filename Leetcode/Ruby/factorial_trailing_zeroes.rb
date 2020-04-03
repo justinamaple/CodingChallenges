@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/factorial-trailing-zeroes
+
 # @param {Integer} n
 # @return {Integer}
 def trailing_zeroes(n)
