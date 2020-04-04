@@ -18,14 +18,14 @@ end
 def iterative_bfs(root, location)
   # Stack contains node, x-coord, y-coord
   stack = [[root, 0, 0]]
-  
+
   until stack.empty?
     node, x, y = *stack.shift
     update_location(node.val, x, y, location)
 
     stack << go_left(node, x, y) if node.left
     stack << go_right(node, x, y) if node.right
-  end  
+  end
 end
 
 def update_location(val, x, y, location)
