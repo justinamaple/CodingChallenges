@@ -57,16 +57,16 @@ def rotate_right(head, k)
 
   tail = head
   len = 1
-  
+
   # Find the len and tail
   while tail.next
     len += 1
     tail = tail.next
   end
-  
+
   # If you are rotating the list one full time, return early
   return head if (k % len).zero?
-  
+
   # Easier to rotate left then right due to direction of list
   # Since it's circular left_rot = full_rot - right_rot
   left_rot = len - k % len
@@ -80,11 +80,11 @@ def rotate_left(head, tail, k)
   k.times do
     new_tail = head
     head = head.next
-    
+
     new_tail.next = nil
     tail.next = new_tail
     tail = new_tail
   end
-  
+
   head
 end
