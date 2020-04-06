@@ -10,9 +10,8 @@
 #     end
 # end
 
-
-# First is the implementation using a stack, which is the first that comes 
-# to mind, however this will use more memory and take slight longer then the 
+# First is the implementation using a stack, which is the first that comes
+# to mind, however this will use more memory and take slight longer then the
 # reverse list way.
 
 # @param {ListNode} head
