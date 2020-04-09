@@ -17,3 +17,25 @@ def rotate(nums, k)
   # Copy rotated array into original
   (0...nums.length).each { |i| nums[i] = arr[i] }
 end
+
+# Alternate that uses properties of reverse to simplify the problem
+def rotate(nums, k)
+  k %= nums.length
+  # Reverse the entire list
+  reverse(nums, 0, nums.length - 1)
+  # Flip the front section only
+  reverse(nums, 0, k - 1)
+  # Flip the back section only
+  reverse(nums, k, nums.length - 1)
+end
+
+def reverse(nums, start, stop)
+  while start < stop
+    temp = nums[start]
+    nums[start] = nums[stop]
+    nums[stop] = temp
+
+    start += 1
+    stop -= 1
+  end
+end
