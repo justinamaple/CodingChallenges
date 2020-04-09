@@ -4,7 +4,7 @@
 #   Begin with a guard clause, if there are less then three values
 #   then it is not possible to have a 3sum, return false. In order
 #   to accurately use the array, it must be sorted. Iterate over the
-#   array - 2 (since the index of left < i < right). If the value for a is
+#   array - 2 (since the index of i < mid < right). If the value for a is
 #   positive, break (it's impossible for a + b + c = 0 if all 3 are
 #   positive)
 #
@@ -36,25 +36,25 @@ def three_sum(nums)
     # Zip past duplicate start vals
     next if i.positive? && nums[i] == nums[i - 1]
 
-    left = i + 1
-    right = nums.length - 1
+    mid = i + 1
+    hi = nums.length - 1
 
-    while left < right
-      sum = nums[i] + nums[left] + nums[right]
+    while mid < hi
+      sum = nums[i] + nums[mid] + nums[hi]
 
       if sum.zero?
-        solutions.push([nums[i], nums[left], nums[right]])
+        solutions.push([nums[i], nums[mid], nums[hi]])
 
         # Zip past duplicate solutions
-        left += 1 while nums[left] == nums[left + 1]
-        right -= 1 while nums[right] == nums[right - 1]
+        mid += 1 while nums[mid] == nums[mid + 1]
+        hi -= 1 while nums[hi] == nums[hi - 1]
 
-        left += 1
-        right -= 1
+        mid += 1
+        hi -= 1
       elsif sum.negative?
-        left += 1
+        mid += 1
       else # sum.positive?
-        right -= 1
+        hi -= 1
       end
     end
   end
