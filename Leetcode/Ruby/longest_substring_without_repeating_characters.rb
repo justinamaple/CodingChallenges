@@ -25,7 +25,7 @@ def length_of_longest_substring(str)
     sub_index = [sub_index, char_map[c] + 1].max if char_map[c]
 
     char_map[c] = i
-    longest = [longest, i - (sub_index + 1)].max
+    longest = [longest, i - sub_index + 1].max
   end
 
   longest

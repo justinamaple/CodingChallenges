@@ -47,8 +47,11 @@ def add_two_numbers(l1, l2)
     current.next = ListNode.new(sum)
     current = current.next
 
-    l1 = l1&.next
+    l1 = l1.next if l1.next
     l2 = l2&.next
+
+    l1 = l1.next if l1
+    l2 = l2.next if l2
   end
 
   head.next
