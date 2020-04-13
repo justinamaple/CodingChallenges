@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/implement-stack-using-queues
+
 class MyStack
 
   =begin
