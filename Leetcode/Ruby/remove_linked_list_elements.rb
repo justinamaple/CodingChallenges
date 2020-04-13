@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/remove-linked-list-elements
+
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
