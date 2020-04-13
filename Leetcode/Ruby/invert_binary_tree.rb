@@ -32,3 +32,21 @@ def invert_children(node)
   node.left = node.right
   node.right = temp
 end
+
+# Recursive Solution
+def invert_tree(root)
+  return if root.nil?
+
+  invert_children(root)
+
+  invert_tree(root.left)
+  invert_tree(root.right)
+
+  root
+end
+
+def invert_children(node)
+  temp = node.left
+  node.left = node.right
+  node.right = temp
+end
