@@ -1,3 +1,6 @@
+# Source:
+#   https://leetcode.com/problems/search-a-2d-matrix
+
 # @param {Integer[][]} matrix
 # @param {Integer} target
 # @return {Boolean}
@@ -12,8 +15,9 @@ end
 
 def bsearch_row(matrix, target, lo, hi)
   return false if lo > hi
+
   mid = lo + (hi - lo) / 2
-  
+
   if matrix[mid][0] <= target && target <= matrix[mid][-1]
     return mid
   elsif target < matrix[mid][0]
@@ -25,6 +29,7 @@ end
 
 def bsearch_col(row, target, lo, hi)
   return false if lo > hi
+
   mid = lo + (hi - lo) / 2
 
   if row[mid] == target
