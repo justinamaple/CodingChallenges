@@ -1,7 +1,7 @@
 def split_subarray(arr)
   return false if arr.size < 2
 
-  (0...arr.length).each do |i|
+  (0..arr.length - 2).each do |i|
     lo = arr[0..i]
     hi = arr[i + 1..-1]
 
@@ -11,4 +11,4 @@ def split_subarray(arr)
   false
 end
 
-p split_subarray([5,2,1,2,4,1])
+p split_subarray([5,2,1,2,4,14])
