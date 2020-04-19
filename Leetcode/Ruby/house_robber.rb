@@ -16,3 +16,20 @@ def recurse(memo, nums, i)
   memo[i] = result
   result
 end
+
+# Bottom Up (Tabulation)
+# @param {Integer[]} nums
+# @return {Integer}
+def rob(nums)
+  return 0 if nums.empty?
+
+  memo = Array.new(nums.length)
+  memo[0] = 0
+  memo[1] = nums[0]
+
+  (1...nums.length).each do |i|
+    memo[i + 1] = [memo[i], memo[i - 1] + nums[i]].max
+  end
+
+  memo[nums.length]
+end
