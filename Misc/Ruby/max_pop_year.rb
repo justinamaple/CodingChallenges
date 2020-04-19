@@ -1,42 +1,46 @@
 # frozen_string_literal: true
 
-def year_with_max_population(birth_death)
-  return false if birth_death.empty?
+def year_with_max_population(people)
+  return false if people.empty?
 
-  pop_change_per_year = create_pop_change(birth_death)
+  population_delta = create_pop_delta(people)
+  find_max_range(population_delta)
+end
+
+def create_pop_delta(people)
+  population_delta = Hash.new(0)
+
+  people.each do |person|
+    birth, death = *person
+
+    population_delta[birth] += 1
+    population_delta[death + 1] -= 1
+  end
+
+  population_delta
+end
+
+def find_max_range(pop_delta)
   current_pop = 0
   max_pop = 0
   max_year = 0
   end_year = 0
 
   # Iterate over the unique keys in order to find given pop
-  ordered_pop_change = pop_change_per_year.keys.sort
+  ordered_pop_delta = pop_delta.keys.sort
 
-  (0...ordered_pop_change.length).each do |i|
-    year = ordered_pop_change[i]
-    current_pop += pop_change_per_year[year]
+  (0...ordered_pop_delta.length).each do |i|
+    year = ordered_pop_delta[i]
+    current_pop += pop_delta[year]
 
     next unless current_pop > max_pop
 
     max_pop = current_pop
     max_year = year
-    end_year = ordered_pop_change[i + 1]
+    end_year = ordered_pop_delta[i + 1]
   end
 
   (max_year..end_year)
-end
-
-def create_pop_change(birth_death)
-  pop_change_per_year = Hash.new(0)
-
-  birth_death.each do |person|
-    birth, death = *person
-
-    pop_change_per_year[birth] += 1
-    pop_change_per_year[death] -= 1
-  end
-
-  pop_change_per_year
 end
 
 birth_death = [
