@@ -18,8 +18,6 @@ def recurse(memo, nums, i)
 end
 
 # Bottom Up (Tabulation)
-# @param {Integer[]} nums
-# @return {Integer}
 def rob(nums)
   return 0 if nums.empty?
 
