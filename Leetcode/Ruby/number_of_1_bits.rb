@@ -15,3 +15,10 @@ end
 def count_ones(bin)
   bin.chars.reduce(0) { |sum, bit| bit == '1' ? sum + 1 : sum }
 end
+
+# Alternate way rather then using reduce, a bit less pretty
+def count_ones_alt(bin)
+  sum = 0
+  bin.chars.each { |char| sum += 1 if char == '1' }
+  sum
+end
