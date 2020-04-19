@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def year_with_max_population(people)
+def years_with_max_population(people)
   return false if people.empty?
 
   population_delta = create_pop_delta(people)
@@ -55,4 +55,4 @@ birth_death = [
   [1980, 2011]
 ]
 
-p year_with_max_population(birth_death)
+p years_with_max_population(birth_death)
