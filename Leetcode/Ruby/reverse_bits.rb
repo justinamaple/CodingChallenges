@@ -4,7 +4,7 @@
 # @param {Integer} n, a positive integer
 # @return {Integer}
 def reverse_bits(n)
-  bin = convert_to_binary(n)
+  bin = to_binary_str(n)
   thirty_two_bits = zero_extend(bin)
   reverse_bits = thirty_two_bits.reverse
   reverse_bits.to_i(2)
@@ -15,6 +15,6 @@ def zero_extend(bin)
   '0' * num_zeroes + bin
 end
 
-def convert_to_binary(int)
+def to_binary_str(int)
   int.to_s(2)
 end
