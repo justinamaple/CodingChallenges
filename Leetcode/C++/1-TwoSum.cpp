@@ -17,9 +17,13 @@
 //   O(n), one extra vector will be generated plus some helper variables
 //   where n is equal to the size of the given vector nums.
 
+#include <vector>
+#include <algorithm> //for sort
+#include <iostream> //for cout
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    std::vector<int> twoSum(std::vector<int>& nums, int target) {
         std::vector<int> sorted = nums;
         std::sort(sorted.begin(), sorted.end());
         
@@ -41,28 +45,30 @@ public:
             sum = sorted[head] + sorted[tail];
         }
 
-        cout << "headVal = " << sorted[head] << "\n";
-        cout << "tailVal = " << sorted[tail] << "\n";
+        std::cout << "headVal = " << sorted[head] << "\n";
+        std::cout << "tailVal = " << sorted[tail] << "\n";
 
         bool headFound = false;
         bool tailFound = false;
+
+        //If you see -1 in return value, it means it did not find that value
         int headsIndex = -1;
         int tailsIndex = -1;
 
         for(int i = 0; i < nums.size(); i++) {
-            cout << i << "\n";
+            std::cout << i << "\n";
             if(headFound && tailFound) {
-                cout << "head and tail found, returning early" << "\n";
+                std::cout << "head and tail found, returning early" << "\n";
                 return {headsIndex, tailsIndex};
             }
 
             if(nums[i] == sorted[head] && !headFound) {
-                cout << "head found" << "\n";
+                std::cout << "head found" << "\n";
                 headsIndex = i;
                 headFound = true;
             }
             else if(nums[i] == sorted[tail] && !tailFound) {
-                cout << "tail found" << "\n";
+                std::cout << "tail found" << "\n";
                 tailsIndex = i;
                 tailFound = true;
             }
