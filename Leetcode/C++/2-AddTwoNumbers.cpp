@@ -1,56 +1,56 @@
-//Non-working solution 
+// Source:
+//   https://leetcode.com/problems/add-two-numbers/
+// Solution:
+//   Rather than inflating the linked lists back into Ints or Longs, I ended up going with a solution
+//   which adds them in order, tracks the carry, and creates the answer LinkedList all in one step.
+//   
+//   This method saves time in a few areas by cutting down on iterations. I have decided against changing
+//   the original lists and have tried to create pure functions to avoid mutations. For the helper functions,
+//   I find code easier to read when ternary operators or if/else chains can be re-used.
 //
-//because they are intent on making things slightly outside the range of int and long.
-//This would be much cleaner and more readable than the proposed solutions, but I guess the other argument
-//could be that since they were storing numbers in LL's there had to be a reason it wasn't just an int or long
-//to begin with.
-
+//   I used a dummy head to make the final return a little bit cleaner since it doesn't use up much more space
+//   and I believer readability should be a higher priority in most cases (where performance isn't the main goal)
+// Time Complexity:
+//   O(n) = O(n), Traverse both lists at the same time, where n is the longer lists length
+// Space Complexity:
+//   O(n), a new list is made that at largest would be the length of the largest list + 1
 #include <iostream> //for cout
 class Solution {
 public:
     struct ListNode {
         int val;
-        ListNode *next;
+        ListNode* next;
         ListNode() : val(0), next(nullptr) {}
         ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode *next) : val(x), next(next) {}
+        ListNode(int x, ListNode* next) : val(x), next(next) {}
     };
 
-    int listToInt(ListNode* node) {
-        int sum = 0;
-        int exp = 0;
-
-        ListNode* head = node;
-        while(head != nullptr) {
-            sum += head->val * std::pow(10, exp);
-            exp++;
-            head = head->next;
-        }
-    
-        return sum;
+       // Helper function for when two lists are different lengths.
+    int getValue(ListNode *list) {
+        return (list ? list->val : 0);
     }
 
-    //Do this recursively for practice
-    ListNode* intToList(int val) {
-        ListNode* head = new ListNode(val % 10);
-        ListNode* last = head;
-        val /= 10;
-
-        while(val > 0) {
-            int digit = val % 10;
-            last->next = new ListNode(digit);
-            last = last->next;
-            val /= 10;
-        } 
-
-        return head;
+    ListNode* advance(ListNode* list) {
+        return (list ? list->next : nullptr);
     }
 
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int v1 = listToInt(l1);
-        int v2 = listToInt(l2);
+            int carry = 0;
+            ListNode *dummy = new ListNode();
+            ListNode *curr = dummy;
 
-        return intToList(v1 + v2);
+            while(l1 || l2 || carry) {
+                int sum = getValue(l1) + getValue(l2) + carry;
+
+                l1 = advance(l1);
+                l2 = advance(l2);
+                carry = sum / 10;
+
+                sum %= 10;
+                curr->next = new ListNode(sum);
+                curr = curr->next;
+            }
+
+            return dummy->next;
     }
-
 };

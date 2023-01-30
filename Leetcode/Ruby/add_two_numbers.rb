@@ -11,9 +11,10 @@
 #   The safe navigation operator is used in conjunction with breaking apart
 #   the sum to avoid null pointers. By running up both lists simultaneously,
 #   ensure we are adding the same digit on top of avoiding the pitfall of
-#   accessing .val on a nil object. The last clever bit involves making the
-#   head pointer at first, then passing the head.next at the end to avoid the
-#   dangling reference.
+#   accessing .val on a nil object.
+#
+#   The last clever bit involves making the head pointer at first, then 
+#   passing the head.next at the end to avoid the dangling reference.
 # Time Complexity:
 #   O(n) = O(n + m), where n and m are the length of l1 and l2 respectively.
 # Space Complexity:
