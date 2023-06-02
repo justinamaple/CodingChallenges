@@ -1,3 +1,19 @@
+/* 
+ * Source:
+ *   https://leetcode.com/problems/valid-parentheses/
+ * Solution:
+ *   Check through the given string in order. If an open parens is the current,
+ *   push it onto the stack. If a closed parens appears, make sure the stack is
+ *   not empty, then check if it is the correct matching parens. If so pop it off
+ *   the stack. Once the entire string has been traversed, check if the stack is
+ *   empty, if it is return true, else false.
+ * Time Complexity:
+ *   O(n), where n is the amount of chars in the input string. 
+ * Space Complexity:
+ *   O(n), one stack is created which in the worse case could be the size of the
+ *   input string.
+ */
+
 #include <stack>
 class Solution {
 public:
