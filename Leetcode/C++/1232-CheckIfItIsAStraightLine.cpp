@@ -1,3 +1,15 @@
+/* 
+ * Source:
+ *   https://leetcode.com/problems/check-if-it-is-a-straight-line
+ * Solution:
+ *   Find the slop, delta y over delta x, between the first two points.
+ *   Then check the remaining points with the first to ensure the slope
+ *   is the same. Special case for inf and -inf being the same.
+ * Time Complexity:
+ *   O(n), where n is the amount of points
+ * Space Complexity:
+ *   O(1), no extra data sctructures are created, just a bunch of temp doubles
+ */
 class Solution {
 public:
     double findSlope(vector<int> p1, vector<int>p2) {
