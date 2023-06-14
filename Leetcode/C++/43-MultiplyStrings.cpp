@@ -1,3 +1,16 @@
+/* 
+ * Source:
+ *   https://leetcode.com/problems/multiply-strings/
+ * Solution:
+ *   Convert both strings into ints, multiply the values, then turn back into strings.
+ *   However this has some issues since they took advantage of the max size. As a
+ *   result the best option would have been to do it one decimal at a time and find
+ *   the carry.
+ * Time Complexity:
+ *   O(n), where n is the length of the longest string.
+ * Space Complexity:
+ *   O(1), no extra data sctructures are created, just some new pointers and nodes.
+ */
 #include <math.h>
 class Solution {
 public:
