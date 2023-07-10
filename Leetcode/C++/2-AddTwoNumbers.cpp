@@ -16,6 +16,14 @@
 //   O(n), a new list is made that at largest would be the length of the largest list + 1
 #include <iostream> //for cout
 class Solution {
+private:
+    struct ListNode {
+        int val;
+        ListNode* next;
+        ListNode() : val(0), next(nullptr) {}
+        ListNode(int x) : val(x), next(nullptr) {}
+        ListNode(int x, ListNode* next) : val(x), next(next) {}
+    };
 public:
     // Helper function for when two lists are different lengths.
     int getValue(ListNode *list) {
@@ -45,13 +53,4 @@ public:
 
             return dummy->next;
     }
-
-private:
-    struct ListNode {
-        int val;
-        ListNode* next;
-        ListNode() : val(0), next(nullptr) {}
-        ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode* next) : val(x), next(next) {}
-    };
 };
