@@ -17,15 +17,7 @@
 #include <iostream> //for cout
 class Solution {
 public:
-    struct ListNode {
-        int val;
-        ListNode* next;
-        ListNode() : val(0), next(nullptr) {}
-        ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode* next) : val(x), next(next) {}
-    };
-
-       // Helper function for when two lists are different lengths.
+    // Helper function for when two lists are different lengths.
     int getValue(ListNode *list) {
         return (list ? list->val : 0);
     }
@@ -53,4 +45,13 @@ public:
 
             return dummy->next;
     }
+
+private:
+    struct ListNode {
+        int val;
+        ListNode* next;
+        ListNode() : val(0), next(nullptr) {}
+        ListNode(int x) : val(x), next(nullptr) {}
+        ListNode(int x, ListNode* next) : val(x), next(next) {}
+    };
 };
