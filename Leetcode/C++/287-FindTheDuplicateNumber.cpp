@@ -1,3 +1,16 @@
+/* 
+Source:
+    https://leetcode.com/problems/find-the-duplicate-number/
+Solution:
+    Create an array to be used as a hash. Initialize all of the values to 0.
+    When running through all the values, increment the hash by one and check
+    it's value. If not 0, then it's the duplicate, short circuit and return
+    that value.
+Time Complexity:
+    O(n), where n is the length of nums
+Space Complexity:
+    O(n), one array of size n is created
+*/
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
